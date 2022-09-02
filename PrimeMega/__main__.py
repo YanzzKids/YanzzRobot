@@ -94,11 +94,11 @@ Hit the /help or tap on button to se available command on Me.
 buttons = [
         [
         InlineKeyboardButton(
-            text=f"➕️ Add {BOT_NAME} to your group ➕️", url=f"t.me/{BOT_USERNAME}?startgroup=true"
+            text=f"➕️ Add ayano to your group ➕️", url=f"t.me/{ayanotapibot}?startgroup=true"
         ),
     ],
     [
-        InlineKeyboardButton(text="Support", url=f"https://t.me/{SUPPORT_CHAT}"
+        InlineKeyboardButton(text="Support", url=f"https://t.me/pbbrowsingvrtlsm"
         ),
         InlineKeyboardButton(
             text="TryInline", switch_inline_query_current_chat=""
@@ -114,10 +114,10 @@ buttons = [
 HELP_STRINGS = """
 Click on the button bellow to get description about specifics command."""
 
-PRIME_IMG = "https://telegra.ph/file/b9fa4e1360d0a872a3cd5.jpg"
+PRIME_IMG = "https://telegra.ph/file/ee13972ab8feb3cb7b4e8.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @Bukan_guudlooking \
+ You can support the project by contacting @naufaalhafiz \
  Supporting isnt always financial! \
  Those who cannot provide monetary support are welcome to help us develop the bot at ."""
 
@@ -455,8 +455,8 @@ def prime_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Support", url=f"t.me/{SUPPORT_CHAT}"),
-                    InlineKeyboardButton(text="Updates", url=f"https://t.me/{SUPPORT_CHANNEL}"),
+                    InlineKeyboardButton(text="Support", url=f"t.me/pbbrowsingvtrlsm"),
+                    InlineKeyboardButton(text="Updates", url=f"https://t.me/bebasreact"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="prime_"),
@@ -475,8 +475,8 @@ def prime_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Tonic", url="t.me/Bukan_guudlooking"),
-                    InlineKeyboardButton(text="x~b", url="t.me/Xbarok"),
+                    InlineKeyboardButton(text="Tonic", url="t.me/naufaalhafiz"),
+                    InlineKeyboardButton(text="x~b", url="t.me/bebasreact"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="prime_"),
