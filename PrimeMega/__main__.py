@@ -94,7 +94,7 @@ Hit the /help or tap on button to se available command on Me.
 buttons = [
         [
         InlineKeyboardButton(
-            text=f"➕️ Add ayano to your group ➕️", url=f"t.me/{ayanotapibot}?startgroup=true"
+            text=f"➕️ Add ayano to your group ➕️", url=f"t.me/ayanotapibot?startgroup=true"
         ),
     ],
     [
