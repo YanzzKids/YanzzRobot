@@ -1,6 +1,6 @@
 {
       "name": "Prime Mega",
-      "description": "A Powerful  Telegram group management bot with autobots theme.",
+      "description": "A Powerful  Telegram group management bot with anime theme.",
       "stack": "heroku-22",
       "keywords": [
          "telegram",
@@ -9,8 +9,8 @@
          "manager",
          "Prime Mega"
       ],
-    
-   "logo":    "https://telegra.ph/file/1da0ff9b5983912852f83.jpg",  
+    https://telegra.ph/file/ee13972ab8feb3cb7b4e8.jpg", 
+   "logo":    "  
    "repository": "https://github.com/Tonic990/PrimeMega",
    "addons": [
           {
