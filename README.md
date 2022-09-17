@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://telegra.ph/file/1da0ff9b5983912852f83.jpg">
+  <img src="https://telegra.ph/file/f496e492cb56b2f3d513c.jpg">
 </p>
 
 <h4><p align="center"> PRIME MEGA </p></h4>
