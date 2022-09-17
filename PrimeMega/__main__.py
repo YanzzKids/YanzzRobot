@@ -96,11 +96,11 @@ PM_START_TEXT = """
 buttons = [
         [
         InlineKeyboardButton(
-            text=f"➕️ Add Me To Your Group ➕️", url=f"t.me/ayanotapibot?startgroup=true"
+            text=f"➕️ Add Me To Your Group ➕️", url=f"t.me/CieltapiBot?startgroup=true"
         ),
     ],
     [
-        InlineKeyboardButton(text="Support", url=f"https://t.me/pbbrowsingvrtlsm"
+        InlineKeyboardButton(text="Support", url=f"https://t.me/CielSupport"
         ),
         InlineKeyboardButton(
             text="TryInline", switch_inline_query_current_chat=""
