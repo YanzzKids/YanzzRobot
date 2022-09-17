@@ -331,7 +331,7 @@ def info(update: Update, context: CallbackContext):
         text += "\n\nThe Disaster level of this person is 'Soldier'."
         disaster_level_present = True
     elif user.id == 1416529201:
-         text += "\n\nOwner Of A Bot. Queen Of @Bukan_guudlooking. Bot Name Inspired From 'JoJo'."
+         text += "\n\nOwner Of A Bot. Queen Of @onlybionn. Bot Name Inspired From 'JoJo'."
          disaster_level_present = True
 
     try:
@@ -368,9 +368,9 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/PrimeSupportChannel"),
+                                "Health", url="https://t.me/CielSupport"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/PrimeSupportChannel")
+                                "Disaster", url="https://t.me/CielSupport")
                         ],
                     ]
                 ),
@@ -386,9 +386,9 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/PrimeSupportChannel"),
+                                "Health", url="https://t.me/CielSupport"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/PrimeSupportChannel")
+                                "Disaster", url="https://t.me/CielSupport")
                         ],
                     ]
                 ),
@@ -460,7 +460,7 @@ def set_about_me(update: Update, context: CallbackContext):
 
 @sudo_plus
 def stats(update: Update, context: CallbackContext):
-    stats = f"❂ <b>Stats For <a href='https://t.me/{BOT_USERNAME}'>{BOT_NAME}</a>:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
+    stats = f"❂ <b>Stats For <a href='https://t.me/CieltapiBot'>Ciel Robot</a>:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
     update.effective_message.reply_text(
         result,
