@@ -27,19 +27,19 @@ async def carbon_func(_, message):
 @pbot.on_message(filters.command("repo"))
 async def repo(_, message):
     await message.reply_text(
-        f"""✨ **Hey I'm Prime Mega** 
-**Owner repo : [naufal](https://t.me/naufaalhafiz)**
-**Python Version :** `{y()}`
-**Library Version :** `{o}`
-**Telethon Version :** `{s}`
-**Pyrogram Version :** `{z}`
+        f"""✨ **Hey I'm Ciel Robot** 
+**👨‍💻Owner repo : [Bion](https://t.me/onlybionn)**
+**🐍Python Version :** `{y()}`
+**📃Library Version :** `{o}`
+**💠Telethon Version :** `{s}`
+**♻️Pyrogram Version :** `{z}`
 **Create your own with click button bellow.**
 """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton("Repo", url="https://xnxx.com"), 
-                    InlineKeyboardButton("Support", url="https://t.me/brwosingvrtlsm")
+                    InlineKeyboardButton("Support", url="https://t.me/CielSupport")
                 ]
             ]
         ),
