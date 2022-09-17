@@ -85,7 +85,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Hello {} !*
-✪ i'm an anime-theme management robot [✨]
+✪ i'm an anime-theme management robot [✨](https://telegra.ph/file/f496e492cb56b2f3d513c.jpg) 
 ────────────────────────────────
 × *Uptime:* `{}`
 × `{}` *users, across* `{}` *chats.*
@@ -116,10 +116,10 @@ buttons = [
 HELP_STRINGS = """
 Click on the button bellow to get description about specifics command."""
 
-PRIME_IMG = "https://telegra.ph/file/ee13972ab8feb3cb7b4e8.jpg"
+PRIME_IMG = "https://telegra.ph/file/f496e492cb56b2f3d513c.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @naufaalhafiz \
+ You can support the project by contacting @onlybionn \
  Supporting isnt always financial! \
  Those who cannot provide monetary support are welcome to help us develop the bot at ."""
 
@@ -424,7 +424,7 @@ def prime_about_callback(update, context):
     elif query.data == "prime_admin":
         query.message.edit_text(
             text=f"*๏ Let's make your group bit effective now*"
-            "\nCongragulations, Prime Mega now ready to manage your group."
+            "\nCongragulations, Ciel Robot now ready to manage your group."
             "\n\n*Admin Tools*"
             "\nBasic Admin tools help you to protect and powerup your group."
             "\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
@@ -457,8 +457,8 @@ def prime_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Support", url=f"t.me/pbbrowsingvtrlsm"),
-                    InlineKeyboardButton(text="Updates", url=f"https://t.me/bebasreact"),
+                    InlineKeyboardButton(text="Support", url=f"t.me/CielSupport"),
+                    InlineKeyboardButton(text="Updates", url=f"https://t.me/CielSupport"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="prime_"),
@@ -477,8 +477,8 @@ def prime_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Tonic", url="t.me/naufaalhafiz"),
-                    InlineKeyboardButton(text="x~b", url="t.me/bebasreact"),
+                    InlineKeyboardButton(text="Bion", url="t.me/CielSupport"),
+                    InlineKeyboardButton(text="x~b", url="t.me/CielSupport"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="prime_"),
@@ -563,7 +563,7 @@ def get_help(update: Update, context: CallbackContext):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Help & Command ❓",
+                            text="Help & Command ❔",
                             url="t.me/{}?start=help".format(context.bot.username),
                         )
                     ]
