@@ -27,6 +27,7 @@ This Bot is Created by KennedyProject, If your kanging this without fork at leas
 - DaisyX 
 - WilliamButcherBot
 - AyiinXd
+- YanzzKids
 ```
 
 ### TUTORIAL LINK DEPLOY
@@ -36,9 +37,9 @@ This Bot is Created by KennedyProject, If your kanging this without fork at leas
 - Then change the deploy link bellow.
 - This step must be doing because mine link is violates the salesforce acceptable use.
 - You can just change the name of github on deploy link and done, the repos able to deploy on heroku.
-- Full Tutorial - [![Full Tutorial](https://img.shields.io/badge/Watch%20Now-blue)](https://youtu.be/GMaYMYhf_Vk)
 - ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ ☟︎︎︎ 
 ```
+Full Tutorial - [![Full Tutorial](https://img.shields.io/badge/Watch%20Now-blue)](https://youtu.be/GMaYMYhf_Vk)
 
 <p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/YanzzKids/YanzzRobot"> <img 
 src="https://img.shields.io/badge/Deploy%20To%20Heroku-red?style=flat&logo=heroku" width="210" height="34.45" /></a></p>
