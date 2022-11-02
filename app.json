@@ -1,16 +1,16 @@
 {
-      "name": "Yins Robot",
+      "name": "Yanzz Robot",
       "description": "A Powerful  Telegram group management bot with anime theme.",
       "keywords": [
          "telegram",
          "advance",
          "group",
          "manager",
-         "yinsrobot"
+         "yanzzrobot"
       ],
     
-   "logo":    "https://telegra.ph/file/64f4b1e3ab6d6911447d2.jpg",  
-   "repository": "https://github.com/AyiinXd/YinsRobot",
+   "logo":    "https://telegra.ph/file/0051e2d0ded7193d14ac8.jpg",  
+   "repository": "https://github.com/YanzzKids/YanzzRobot",
    "stack": "heroku-22",
    "addons": [
           {
@@ -47,7 +47,7 @@
       "OWNER_ID": {
          "description": "Your user ID as an integer.",
          "required": true,
-         "value": "1700405732"
+         "value": "1141626067"
      },
 
       "STRING_SESSION": {
@@ -65,7 +65,7 @@
       },
       "BOT_USERNAME": {
          "description": "username of your bot without the @",
-         "value": "YinzRobot"
+         "value": "YanzzRobot"
       },
 
       "BOT_ID": {
@@ -75,12 +75,12 @@
 
       "OWNER_USERNAME": {
          "description": "Your username without the @",
-         "value": "AyiinXd"
+         "value": "YanzzKids"
       },
       "SUPPORT_CHAT": {
          "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to masha support than consider you made an enemy.",
          "required": true,
-         "value": "AyiinXdSupport"
+         "value": "YanzzSupportt"
       },
       "MONGO_DB_URI": {
          "description": "Required for database connections.",
