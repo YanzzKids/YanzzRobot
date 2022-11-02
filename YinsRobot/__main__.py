@@ -83,7 +83,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Hello {} !*
-✪ I'm an Yins management bot [✨](https://telegra.ph/file/64f4b1e3ab6d6911447d2.jpg)
+✪ I'm an 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭 management and music bot [✨](https://telegra.ph/file/51c8712f990fd5ab751b8.jpg)
 ────────────────────────
 × *Uptime:* `{}`
 × `{}` *users, across* `{}` *chats.*
@@ -103,7 +103,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="➗ Add Yins To Your Group ➗", url=f"t.me/{bu}?startgroup=new"),
+            text="➗ Add 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭 To Your Group ➗", url=f"t.me/{bu}?startgroup=new"),
     ],
 ]
 
