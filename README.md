@@ -2,9 +2,9 @@
   <img src="https://telegra.ph/file/f496e492cb56b2f3d513c.jpg">
 </p>
 
-<h4><p align="center"> PRIME MEGA </p></h4>
+<h4><p align="center"> ZENITSU </p></h4>
 
-<p align="center">Prime Mega is a modular bot running on python3 with autobots theme and have a lot features.</p>
+<p align="center">Zenitsu Robot is a modular bot running on python3 with autobots theme and have a lot features.</p>
 
 <p align="center">
 <a href="https://t.me/PrimeMegaBot"> <img src="https://img.shields.io/badge/Prime-Mega-blue?&logo=telegram" alt="Prime on Telegram" /> </a><br>
@@ -30,19 +30,6 @@
 </details>
 
 <details>
-<summary><b>🔗 Deploy on VPS</b></summary>
-<br>
-    
-### Tutorial Deploy on VPS
-```console
-root@PrimeMega~ $ screen -S PrimeMega
-root@PrimeMega~ $ git clone https://github.com/Toni880/PrimeMega
-root@PrimeMega~ $ cd PrimeMega
-root@PrimeMega~ $ pip3 install -U -r requirements.txt
-root@PrimeMega~ $ cp prime.env .env
-root@PrimeMega~ $ nano .env
-root@PrimeMega~ $ bash start
-```
 
 </details>
 
