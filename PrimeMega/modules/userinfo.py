@@ -26,14 +26,12 @@ from telegram import (
   InlineKeyboardButton,
   InlineKeyboardMarkup,
 )
-from telegram.ext import CallbackContext, CommandHandler
+from telegram.ext import CallbackContext, CommandHandler, CallbackQueryHandler
 from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
 from telegram.utils.helpers import escape_markdown, mention_html
     
 from PrimeMega import (
-    BOT_USERNAME,
-    BOT_NAME,
     DEV_USERS,
     OWNER_ID,
     DRAGONS,
@@ -266,7 +264,7 @@ def info(update: Update, context: CallbackContext):
     else:
         return
 
-    rep = message.reply_text("<code>Appraising...</code>", parse_mode=ParseMode.HTML)
+    rep = message.reply_text("<code>Getting info...</code>", parse_mode=ParseMode.HTML)
 
     text = (
         f"╔═━「<b> Appraisal results:</b> 」\n"
@@ -330,8 +328,8 @@ def info(update: Update, context: CallbackContext):
     elif user.id in WOLVES:
         text += "\n\nThe Disaster level of this person is 'Soldier'."
         disaster_level_present = True
-    elif user.id == 1416529201:
-         text += "\n\nOwner Of A Bot. Queen Of @onlybionn. Bot Name Inspired From 'JoJo'."
+    elif user.id == 1829047705:
+         text += "\n\nOwner Of A Bot. Queen Of @greyyvbss. Bot Name Inspired From 'JoJo'."
          disaster_level_present = True
 
     try:
@@ -368,9 +366,9 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/CielSupport"),
+                                "Health", url="https://t.me/zennih"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/CielSupport")
+                                "Disaster", url="https://t.me/zennih")
                         ],
                     ]
                 ),
@@ -386,9 +384,9 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/CielSupport"),
+                                "Health", url="https://t.me/zennih"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/CielSupport")
+                                "Disaster", url="https://t.me/zennih")
                         ],
                     ]
                 ),
@@ -459,14 +457,78 @@ def set_about_me(update: Update, context: CallbackContext):
             )
 
 @sudo_plus
-def stats(update: Update, context: CallbackContext):
-    stats = f"❂ <b>Stats For <a href='https://t.me/CieltapiBot'>Ciel Robot</a>:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
-    result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
-    update.effective_message.reply_text(
-        result,
-        parse_mode=ParseMode.HTML, 
-        disable_web_page_preview=True
-   )
+def stats(update, context):
+    db_size = SESSION.execute("SELECT pg_size_pretty(pg_database_size(current_database()))").scalar_one_or_none()
+    uptime = datetime.datetime.fromtimestamp(boot_time()).strftime("%Y-%m-%d %H:%M:%S")
+    botuptime = get_readable_time((time.time() - StartTime))
+    status = "╒═══「 *Zenitsu Robot Statistik Sistem*: 」\n\n"
+    status += f"• *Waktu Mulai*: {str(uptime)}" + "\n"
+    uname = platform.uname()
+    status += f"• *Sistem*: {str(uname.system)}" + "\n"
+    status += f"• *Rilis*: {escape_markdown(str(uname.release))}" + "\n"
+    status += f"• *Mesin*: {escape_markdown(str(uname.machine))}" + "\n"
+    mem = virtual_memory()
+    cpu = cpu_percent()
+    disk = disk_usage("/")
+    status += f"• *CPU*: {str(cpu)}" + " %\n"
+    status += f"• *RAM*: {str(mem[2])}" + " %\n"
+    status += f"• *Penyimpanan*: {str(disk[3])}" + " %\n"
+    status += f"• *Python version*: {python_version()}" + "\n"
+    kontol = [
+        [
+            InlineKeyboardButton(
+                text="Ping", callback_data="ping_kontol"
+            )
+        ]
+    ]
+    try:
+        update.effective_message.reply_text(status +
+            "\n📊 *Statistik Bot*:\n"
+            + "\n".join([mod.__stats__() for mod in STATS]) +
+            "\n\n╘══ 「Powered By: [Zenitsu Robot](https://t.me/ZeniitsuRobot) 」\n\n",
+        parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup(kontol), disable_web_page_preview=True)
+    except BaseException:
+        update.effective_message.reply_text(
+            (
+                (
+                    (
+                        "\n📊 *Statistik Bot*:\n"
+                        + "\n".join(mod.__stats__() for mod in STATS)
+                    )
+                    + "\n\n📨 [ᴄʜᴀɴɴᴇʟ](https://t.me/zennih) | 📣 [sᴜᴘᴘᴏʀᴛ](https://t.me/ZennXSupport)\n\n"
+                )
+                + "╘══「 Powered By: [Zenitsu Robot](t.me/ZeniitsuRobot) 」\n"
+            ),
+            parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(kontol),
+            disable_web_page_preview=True,
+        )
+
+
+def pingCallback(update: Update, context: CallbackContext):
+    query = update.callback_query
+    start_time = time.time()
+    bot = context.bot
+    chat = update.effective_chat
+    user = update.effective_user
+    requests.get("https://api.telegram.org")
+    end_time = time.time()
+    ping_time = round((end_time - start_time) * 1000, 3)
+    uptime = datetime.datetime.fromtimestamp(boot_time()).strftime("%Y-%m-%d %H:%M:%S")
+    botuptime = get_readable_time((time.time() - StartTime))
+    try:
+        if user.id not in DEV_USERS:
+            return bot.answer_callback_query(
+                query.id,
+                "Anda tidak memiliki akses untuk melakukan ini!.",
+                show_alert=True,
+            )
+    except BadRequest as excp:
+        if excp.message == "Chat_not_modified":
+            pass
+        else:
+            raise
+    query.answer(f"🏓 Pong! {ping_time}ms\n⏰ Waktu aktif: {botuptime}", show_alert=True)
         
         
 def about_bio(update: Update, context: CallbackContext):
@@ -553,37 +615,36 @@ def __user_info__(user_id):
 
 
 __help__ = """
-*ID:*
-❂ /id*:* get the current group id. If used by replying to a message, gets that user's id.
-❂ /gifid*:* reply to a gif to me to tell you its file ID.
+*PENGENAL:*
+❂ /id*:* dapatkan id grup saat ini. Jika digunakan dengan membalas pesan, dapatkan id pengguna itu.
+❂ /gifid*:* balas gif ke saya untuk memberi tahu Anda ID filenya.
  
-*Self addded information:* 
-❂ /setme <text>*:* will set your info
-❂ /me*:* will get your or another user's info.
-Examples:
-❂ /setme I am a wolf.
-❂ /me @username(defaults to yours if no user specified)
+*Informasi tambahan diri:*
+❂ /setme <text>*:* akan mengatur info Anda
+❂ /me*:* akan mendapatkan info Anda atau pengguna lain.
+Contoh:
+❂ /setme Saya serigala.
+❂ /me @namapengguna(default ke milik Anda jika tidak ada pengguna yang ditentukan)
  
-*Information others add on you:* 
-❂ /bio*:* will get your or another user's bio. This cannot be set by yourself.
-❂ /setbio <text>*:* while replying, will save another user's bio 
-Examples:
-❂ /bio @username(defaults to yours if not specified).
-❂ /setbio This user is a wolf (reply to the user)
+*Informasi yang ditambahkan orang lain pada Anda:*
+❂ /bio*:* akan mendapatkan bio Anda atau pengguna lain. Ini tidak dapat diatur sendiri.
+❂ /setbio <text>*:* saat membalas, akan menyimpan bio pengguna lain
+Contoh:
+❂ /bio @namapengguna(default milik Anda jika tidak ditentukan).
+❂ /setbio Pengguna ini adalah serigala (balas ke pengguna)
  
-*Overall Information about you:*
-❂ /info*:* get information about a user. 
+*Informasi Keseluruhan tentang Anda:*
+❂ /info*:* mendapatkan informasi tentang pengguna.
  
-*json Detailed info:*
-❂ /json*:* Get Detailed info about any message.
+*json Info lengkap:*
+❂ /json*:* Dapatkan info detail tentang pesan apa pun.
  
 *AFk:*
-When marked as AFK, any mentions will be replied to with a message stating that you're not available!
-❂ /afk <reason>*:* Mark yourself as AFK.
-  - brb <reason>: Same as the afk command, but not a command. 
+Ketika ditandai sebagai AFK, penyebutan apa pun akan dibalas dengan pesan yang menyatakan bahwa Anda tidak tersedia!
+❂ /afk <reason>*:* Tandai diri Anda sebagai AFK.
+  - brb <reason>: Sama seperti perintah afk, tapi bukan perintah.
   
-*What is that health thingy?*
- Come and see [HP System explained](https://t.me/KennedyProject/44)
+*Apa itu kesehatan?*
 """
 
 SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio, run_async=True)
@@ -591,6 +652,7 @@ GET_BIO_HANDLER = DisableAbleCommandHandler("bio", about_bio, run_async=True)
 
 STATS_HANDLER = CommandHandler(["stats", "statistics"], stats, run_async=True)
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, run_async=True)
+PINGCB_HANDLER = CallbackQueryHandler(pingCallback, pattern=r"ping_kontol")
 GIFID_HANDLER = DisableAbleCommandHandler("gifid", gifid, run_async=True)
 INFO_HANDLER = DisableAbleCommandHandler("info", info, run_async=True)
 
@@ -601,6 +663,7 @@ dispatcher.add_handler(STATS_HANDLER)
 dispatcher.add_handler(ID_HANDLER)
 dispatcher.add_handler(GIFID_HANDLER)
 dispatcher.add_handler(INFO_HANDLER)
+dispatcher.add_handler(PINGCB_HANDLER)
 dispatcher.add_handler(SET_BIO_HANDLER)
 dispatcher.add_handler(GET_BIO_HANDLER)
 dispatcher.add_handler(SET_ABOUT_HANDLER)
