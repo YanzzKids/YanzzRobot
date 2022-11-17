@@ -4,9 +4,9 @@ from pyrogram import __version__ as z
 from telethon import __version__ as s
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import filters
-from PrimeMega import pbot
-from PrimeMega.utils.errors import capture_err
-from PrimeMega.utils.functions import make_carbon
+from EmikoRobot import pbot
+from EmikoRobot.utils.errors import capture_err
+from EmikoRobot.utils.functions import make_carbon
 
 
 @pbot.on_message(filters.command("carbon"))
@@ -24,7 +24,7 @@ async def carbon_func(_, message):
     carbon.close()
 
 
-MEMEK = "https://telegra.ph/file/1ef60441da2c164f64a3b.jpg"
+MEMEK = "https://telegra.ph/file/11b5922a33de9968cedfe.jpg"
 
 @pbot.on_message(filters.command("repo"))
 async def repo(_, message):
@@ -32,7 +32,7 @@ async def repo(_, message):
         photo=MEMEK,
         caption=f"""✨ **Hey I'm Zenitsu Robot** 
 
-**Owner repo : [bion](https://t.me/onlybionn)**
+**Owner repo : [Bion](https://t.me/onlybionn)**
 **Python Version :** `{y()}`
 **Library Version :** `{o}`
 **Telethon Version :** `{s}`
@@ -44,7 +44,7 @@ async def repo(_, message):
             [
                 [
                     InlineKeyboardButton(
-                        "Update", url="https://t.me/zennih"), 
+                        "updates", url="https://t.me/zennih"), 
                     InlineKeyboardButton(
                         "Support", url="https://t.me/ZennXSupport")
                 ]
