@@ -107,7 +107,7 @@ buttons = [
         ),
     ],
     [
-        InlineKeyboardButton(text="❓ ʙᴀɴᴛᴜᴀɴ", callback_data="emiko_support"
+        InlineKeyboardButton(text="❓ ʙᴀɴᴛᴜᴀɴ", callback_data="prime_support"
        ),
 
     ],
@@ -365,7 +365,7 @@ def help_button(update, context):
         pass
 
 
-def emiko_about_callback(update, context):
+def prime_about_callback(update, context):
     query = update.callback_query
     if query.data == "prime_":
         query.message.edit_text(
@@ -429,7 +429,7 @@ def emiko_about_callback(update, context):
             "\n • /authusers - Periksa DAFTAR AUTH grup",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="⭅ ᴋᴇᴍʙᴀʟɪ", callback_data="emiko_")]]
+                [[InlineKeyboardButton(text="⭅ ᴋᴇᴍʙᴀʟɪ", callback_data="prime_")]]
             ),
         )
     elif query.data == "prime_notes":
@@ -444,7 +444,7 @@ def emiko_about_callback(update, context):
             "\n\n • /queue or /cqueue- Periksa Daftar Antrian Musik",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="⭅ ᴋᴇᴍʙᴀʟɪ", callback_data="emiko_")]]
+                [[InlineKeyboardButton(text="⭅ ᴋᴇᴍʙᴀʟɪ", callback_data="prime_")]]
             ),
         )
     elif query.data == "prime_support":
