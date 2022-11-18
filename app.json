@@ -1,21 +1,20 @@
 {
-      "name": "Prime Mega",
+      "name": "Zenitsu",
       "description": "A Powerful  Telegram group management bot with anime theme.",
-      "stack": "heroku-22",
       "keywords": [
          "telegram",
          "advance",
          "group",
          "manager",
-         "Prime Mega"
+         "naorobot"
       ],
-     
-   "logo":    "  https://telegra.ph/file/ee13972ab8feb3cb7b4e8.jpg", 
-   "repository": "https://github.com/Tonic990/PrimeMega",
+    
+   "logo":    "https://telegra.ph/file/f268a324304deaa0f0180.jpg",  
+   "repository": "https://github.com/BionXp/Zenitsu",
    "addons": [
           {
          "options": {
-            "version": "12"
+            "version": "13"
          },
          "plan": "heroku-postgresql"
       }
@@ -35,28 +34,27 @@
          "value": ""
       },
       "API_ID": {
-         "description": "Get API_ID from my.telegram.org or @PrimeApiBot, used for telethon based modules.",
+         "description": "Get API_ID from my.telegram.org, used for telethon based modules.",
          "required": true,
          "value": ""
       },
       "API_HASH": {
-         "description": "Get API_HASH from my.telegram.org or @PrimeApiBot, used for telethon based modules.",
+         "description": "Get API_HASH from my.telegram.org, used for telethon based modules.",
          "required": true,
          "value": ""
       },    
-      "SQLALCHEMY_DATABASE_URI": {
-         "description": "Your postgres sql db, empty this field if you dont have one.",
-         "required": false,
-         "value": "sqldbtype://username:pw@hostname:port/db_name"
-      },      
       "OWNER_ID": {
          "description": "Your user ID as an integer.",
          "required": true,
-         "value": "1416529201"
+         "value": ""
      },
-
       "STRING_SESSION": {
          "description": "Fill with telethon string session.",
+         "required": true,
+         "value": "" 
+      },
+      "IMG_BOT": {
+         "description": "YOUR IMAGE BOT.",
          "required": true,
          "value": "" 
       },
@@ -70,12 +68,9 @@
       },
       "BOT_USERNAME": {
          "description": "username of your bot without the @",
-         "value": "PrimeMegaBot"
+         "value": ""
       },
-      "BOT_NAME": {
-         "description": "name of your bot",
-         "value": "Prime Mega"
-      },
+
       "BOT_ID": {
          "description": "to get your bot_id using other bot or userbot",
          "value": ""
@@ -83,12 +78,12 @@
 
       "OWNER_USERNAME": {
          "description": "Your username without the @",
-         "value": "Bukan_guudlooking"
+         "value": ""
       },
       "SUPPORT_CHAT": {
          "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to masha support than consider you made an enemy.",
          "required": true,
-         "value": "PrimeSupportGroup"
+         "value": ""
       },
       "MONGO_DB_URI": {
          "description": "Required for database connections.",
@@ -104,19 +99,14 @@
         "required": false
      },
      "EVENT_LOGS": {
-         "description": "Event logs channel to note down important bot level events, recommend to make this public. ex: '-100'",
+         "description": "Event logs channel to note down important bot level events, recommend to make this public. ex: '-123456'",
          "required": true,
-         "value": "-1001376025003"
-      },
-      "ERROR_LOGS": {
-         "description": "error logs channel to note down important bot errors events, make this public/private. ex: '-100'",
-         "required": true,
-         "value": ""
+         "value": "-1001626554919"
       },
       "JOIN_LOGGER": {
          "description": "A channel where bot will print who added it to what group, useful during debugging or spam handling.",
          "required": true,
-         "value": "-1001376025003"
+         "value": "-1001626554919"
       },      
       "CASH_API_KEY": {
          "description": "Required for currency converter. Get yours from https://www.alphavantage.co/support/#api-key",
@@ -129,8 +119,8 @@
          "value": "-xyz"
      }, 
 
-      "API_OPENWEATHER": {
-        "description": "Get your own APPID from https://api.openweathermap.org/data/2.5/weather",
+      "OPENWEATHERMAP_ID": {
+        "description": "Get your own API from https://api.openweathermap.org/data/2.5/weather",
         "value": "",
         "required": false
       },
@@ -140,12 +130,17 @@
          "required": false,
          "value": ""
      },
+      "ERROR_LOG": {
+         "description": "ID of log for show error.",
+         "required": false,
+         "value": ""
+     },
         "ARQ_API_KEY": {
             "description": "Get this from @ARQRobot.",
             "required": true
         },
 
-      "sw_api": {
+      "SPAMWATCH_API": {
          "description": "Spamwatch API Token, Get one from @SpamWatchBot.",
          "required": false,
          "value": ""
@@ -215,15 +210,6 @@
       "DEL_CMDS": {
          "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
          "value": "True"
-      },
-        "ARQ_API": {
-            "description": "Get this from @ARQRobot.",
-            "required": true
-        },
-      "BAN_STICKER": {
-         "description": "ID of the sticker you want to use when banning people.",
-         "required": false,
-         "value": ""
       },
       "WALL_API": {
          "description": "Required for wallpaper. Get your's from https://wall.alphacoders.com/",
