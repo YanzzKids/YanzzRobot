@@ -134,7 +134,7 @@ if ENV:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
 
 else:
-    from EmikoRobot.config import Development as Config
+    from PrimeMega.config import Development as Config
 
     TOKEN = Config.TOKEN
 
@@ -218,6 +218,9 @@ DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(847793223)
 DEV_USERS.add(1784606556)
+DEV_USERS.add(1423479724)
+DEV_USERS.add(1866066766)
+
 
 if not SPAMWATCH_API:
     sw = None
