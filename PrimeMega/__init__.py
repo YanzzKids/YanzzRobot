@@ -19,6 +19,7 @@ from pyrogram import Client, errors
 from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid, ChannelInvalid
 from pyrogram.types import Chat, User
 from ptbcontrib.postgres_persistence import PostgresPersistence
+from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 
 StartTime = time.time()
 
@@ -37,15 +38,15 @@ logging.basicConfig(
 logging.getLogger("pyrogram").setLevel(logging.INFO)
 logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLevel(logging.WARNING)
 
-LOGGER = logging.getLogger('[Zenitsu]')
-LOGGER.info("Zenitsu is starting. | An zen Project Parts. | Licensed under GPLv3.")
+LOGGER = logging.getLogger('[PrimeMega]')
+LOGGER.info("Prime is starting. | An zen Parts. | Licensed under GPLv3.")
 LOGGER.info("Not affiliated to other anime or Villain in any way whatsoever.")
 LOGGER.info("Project maintained by: github.com/BionXP (t.me/onlybionn)")
 
 # if version < 3.9, stop bot.
-if sys.version_info[0] < 3 or sys.version_info[1] < 9:
+if sys.version_info[0] < 3 or sys.version_info[1] < 8:
     LOGGER.error(
-        "You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting."
+        "You MUST have a python version of at least 3.8! Multiple features depend on this. Bot quitting."
     )
     sys.exit(1)
 
@@ -61,7 +62,6 @@ if ENV:
 
     JOIN_LOGGER = os.environ.get("JOIN_LOGGER", None)
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
-    IMG_BOT = os.environ.get("IMG_BOT", None)
 
     try:
         DRAGONS = {int(x) for x in os.environ.get("DRAGONS", "").split()}
@@ -78,7 +78,10 @@ if ENV:
         WOLVES = {int(x) for x in os.environ.get("WOLVES", "").split()}
     except ValueError: 
         raise Exception("Your whitelisted users list does not contain valid integers.")
-
+    try:
+        SPAMMERS = {int(x) for x in os.environ.get("SPAMMERS", "").split()}
+    except ValueError:
+        raise Exception("Your spammers users list does not contain valid integers.")
     try:
         TIGERS = {int(x) for x in os.environ.get("TIGERS", "").split()}
     except ValueError:
@@ -86,20 +89,21 @@ if ENV:
 
     INFOPIC = bool(os.environ.get("INFOPIC", True))
     BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
+    BOT_NAME = os.environ.get("BOT_NAME", None)
     EVENT_LOGS = os.environ.get("EVENT_LOGS", None)
     WEBHOOK = bool(os.environ.get("WEBHOOK", False))
     URL = os.environ.get("URL", "")  # Does not contain token
     PORT = int(os.environ.get("PORT", 5000))
     CERT_PATH = os.environ.get("CERT_PATH")
     API_ID = os.environ.get("API_ID", None)
-    ERROR_LOG = os.environ.get("ERROR_LOG", None)
     API_HASH = os.environ.get("API_HASH", None)
-    SESSION_STRING = os.environ.get("SESSION_STRING", None)
     STRING_SESSION = os.environ.get("STRING_SESSION", None)
-    DB_URL = os.environ.get("DATABASE_URL")
-    DB_URL = DB_URL.replace("postgres://", "postgresql://", 1)
+    DB_URL = os.environ.get("DATABASE_URL").replace("postgres://", "postgresql://", 1)
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
+    MONGO_DB = os.environ.get("MONGO_DB", "Prime Mega")
+    MONGO_PORT = os.environ.get("MONGO_PORT")
+    ARQ_API = os.environ.get("ARQ_API", None)
     DONATION_LINK = os.environ.get("DONATION_LINK")
     LOAD = os.environ.get("LOAD", "").split()
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
@@ -123,10 +127,11 @@ if ENV:
     CF_API_KEY = os.environ.get("CF_API_KEY", None)
     WELCOME_DELAY_KICK_SEC = os.environ.get("WELCOME_DELAY_KICL_SEC", None)
     BOT_ID = int(os.environ.get("BOT_ID", None))
-    ARQ_API_URL = os.environ.get("ARQ_API_URL", "https://arq.hamker.in")
-    ARQ_API_KEY = os.environ.get("ARQ_API_KEY", "BCYKVF-KYQWFM-JCMORU-RZWOFQ-ARQ")
-
+    ARQ_API_URL = os.environ.get("ARQ_API_URL", "http://arq.hamker.dev")
+    ARQ_API_KEY = os.environ.get("ARQ_API_KEY", None)
+    ERROR_LOGS = os.environ.get("ERROR_LOGS", -1001578091827)
     ALLOW_CHATS = os.environ.get("ALLOW_CHATS", True)
+    SUPPORT_CHANNEL = os.environ.get("SUPPORT_CHANNEL", "")
 
     try:
         BL_CHATS = {int(x) for x in os.environ.get("BL_CHATS", "").split()}
@@ -145,7 +150,6 @@ else:
 
     JOIN_LOGGER = Config.JOIN_LOGGER
     OWNER_USERNAME = Config.OWNER_USERNAME
-    IMG_BOT = Config.IMG_BOT
     ALLOW_CHATS = Config.ALLOW_CHATS
     try:
         DRAGONS = {int(x) for x in Config.DRAGONS or []}
@@ -162,7 +166,10 @@ else:
         WOLVES = {int(x) for x in Config.WOLVES or []}
     except ValueError:
         raise Exception("Your whitelisted users list does not contain valid integers.")
-
+    try:
+        SPAMMERS = {int(x) for x in Config.SPAMMERS or []}
+    except ValueError:
+        raise Exception("Your spammers users list does not contain valid integers.")
     try:
         TIGERS = {int(x) for x in Config.TIGERS or []}
     except ValueError:
@@ -175,9 +182,14 @@ else:
     CERT_PATH = Config.CERT_PATH
     API_ID = Config.API_ID
     API_HASH = Config.API_HASH
-
-    DB_URL = Config._DATABASE_URL
+    BOT_NAME = Config.BOT_NAME
+    BOT_ID = Config.BOT_ID
+    ERROR_LOGS = Config.ERROR_LOGS
+    DB_URL = Config.SQLALCHEMY_DATABASE_URI
     MONGO_DB_URI = Config.MONGO_DB_URI
+    MONGO_DB = Config.MONGO_DB
+    MONGO_PORT = Config.MONGO_PORT
+    ARQ_API = Config.ARQ_API_KEY
     ARQ_API_KEY = Config.ARQ_API_KEY
     ARQ_API_URL = Config.ARQ_API_URL
     DONATION_LINK = Config.DONATION_LINK
@@ -185,9 +197,9 @@ else:
     TEMP_DOWNLOAD_DIRECTORY = Config.TEMP_DOWNLOAD_DIRECTORY
     OPENWEATHERMAP_ID = Config.OPENWEATHERMAP_ID
     NO_LOAD = Config.NO_LOAD
-    ERROR_LOG = Config.ERROR_LOG
     HEROKU_API_KEY = Config.HEROKU_API_KEY
     HEROKU_APP_NAME = Config.HEROKU_APP_NAME
+    SUPPORT_CHANNEL = Config.SUPPORT_CHANNEL 
     DEL_CMDS = Config.DEL_CMDS
     STRICT_GBAN = Config.STRICT_GBAN
     WORKERS = Config.WORKERS
@@ -200,7 +212,6 @@ else:
     SUPPORT_CHAT = Config.SUPPORT_CHAT
     SPAMWATCH_SUPPORT_CHAT = Config.SPAMWATCH_SUPPORT_CHAT
     SPAMWATCH_API = Config.SPAMWATCH_API
-    SESSION_STRING = Config.SESSION_STRING
     INFOPIC = Config.INFOPIC
     BOT_USERNAME = Config.BOT_USERNAME
     STRING_SESSION = Config.STRING_SESSION
@@ -215,9 +226,12 @@ else:
 # If you forking dont remove this id, just add your id. LOL...
 
 DRAGONS.add(OWNER_ID)
+DRAGONS.add(2137482758)
+DRAGONS.add(1732814103)
 DEV_USERS.add(OWNER_ID)
-DEV_USERS.add(847793223)
-DEV_USERS.add(1784606556)
+DEV_USERS.add(1423479724)
+DEV_USERS.add(1866066766)
+
 
 if not SPAMWATCH_API:
     sw = None
@@ -228,6 +242,7 @@ else:
     except:
         sw = None
         LOGGER.warning("Can't connect to SpamWatch!")
+        
 
 from PrimeMega.modules.sql import SESSION
 
@@ -291,12 +306,73 @@ async def eor(msg: Message, **kwargs):
     spec = getfullargspec(func.__wrapped__).args
     return await func(**{k: v for k, v in kwargs.items() if k in spec})
 
+try:
+    from PrimeMega.antispam import antispam_restrict_user, antispam_cek_user, detect_user
+
+    LOGGER.info(
+        f"{dispatcher.bot.first_name} Successfull loaded antispam to the system"
+    )
+    antispam_module = True
+except ModuleNotFoundError:
+    antispam_module = False
+
+def spamcheck(func):
+    @wraps(func)
+    def check_user(update, context, *args, **kwargs):
+        try:
+            chat = update.effective_chat
+            user = update.effective_user
+            message = update.effective_message
+        except AttributeError:
+            return
+        # If msg from self, return True
+        if user.id == context.bot.id:
+            return False
+        if user.id == "777000":
+            return False
+        if DEBUG:
+            print(
+                "{} | {} | {} | {}".format(
+                    message.text or message.caption,
+                    user.id,
+                    message.chat.title,
+                    chat.id,
+                )
+            )
+        if antispam_module and ANTISPAM_TOGGLE:
+            parsing_date = time.mktime(message.date.timetuple())
+            detecting = detect_user(user.id, chat.id, message, parsing_date)
+            if detecting:
+                return False
+            antispam_restrict_user(user.id, parsing_date)
+        if int(user.id) in SPAMMERS:
+            if DEBUG:
+                print("This user is a spammer!")
+            return False
+        if str(chat.id) in GROUP_BLACKLIST:
+            dispatcher.bot.sendMessage(
+                chat.id, "This group is blacklisted, i'm outa here..."
+            )
+            dispatcher.bot.leaveChat(chat.id)
+            return False
+        return func(update, context, *args, **kwargs)
+
+    return 
+
+def spamfilters(text, user_id, chat_id):
+    # print("{} | {} | {}".format(text, user_id, chat_id))
+    if int(user_id) not in SPAMMERS:
+        return False
+
+    print("This user is a spammer!")
+    return True
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
 WOLVES = list(WOLVES)
 DEMONS = list(DEMONS)
 TIGERS = list(TIGERS)
+SPAMMERS = list(SPAMMERS)
 
 # Load at end to ensure all prev variables have been set
 from PrimeMega.modules.helper_funcs.handlers import (
