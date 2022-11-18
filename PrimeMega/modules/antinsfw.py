@@ -6,7 +6,7 @@ from PIL import Image
 from telegram import ParseMode
 from PrimeMega import dispatcher, updater
 import PrimeMega.modules.sql.nsfw_sql as sql
-from EmikoRobot.modules.log_channel import gloggable
+from PrimeMega.modules.log_channel import gloggable
 from telegram import Message, Chat, Update, Bot, MessageEntity
 from telegram.error import BadRequest, RetryAfter, Unauthorized
 from telegram.ext import CommandHandler, run_async, CallbackContext
