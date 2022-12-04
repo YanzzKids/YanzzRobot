@@ -83,39 +83,39 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Hello {} !*
-✪ I'm an 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭 management and music bot [✨](https://telegra.ph/file/51c8712f990fd5ab751b8.jpg)
+✪ Saya 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭 untuk bot manage dan musik [✨](https://telegra.ph/file/51c8712f990fd5ab751b8.jpg)
 ────────────────────────
-× *Uptime:* `{}`
-× `{}` *users, across* `{}` *chats.*
+× *Waktu Aktif:* `{}`
+× `{}` *pengguna, di seluruh* `{}` *obrolan.*
 ────────────────────────
-✪ Hit /help to see my available commands.
+✪ Tekan /help untuk melihat perintah saya yang tersedia.
 """
 
 buttons = [
     [
-        InlineKeyboardButton(text="About 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭", callback_data="yins_"),
+        InlineKeyboardButton(text="Tentang 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭", callback_data="yins_"),
     ],
     [
-        InlineKeyboardButton(text="Get Help", callback_data="help_back"),
+        InlineKeyboardButton(text="Mendapatkan bantuan", callback_data="help_back"),
         InlineKeyboardButton(
             text="Try inline!​​", switch_inline_query_current_chat=""
         ),
     ],
     [
         InlineKeyboardButton(
-            text="➗ Add 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭 To Your Group ➗", url=f"t.me/{bu}?startgroup=new"),
+            text="➗ Tambahkan 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭 Ke Grup Anda ➗", url=f"t.me/{bu}?startgroup=new"),
     ],
 ]
 
 
 HELP_STRINGS = """
-Click on the button bellow to get description about specifics command."""
+Klik tombol di bawah untuk mendapatkan deskripsi tentang perintah spesifik."""
 
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @BotMr07 \
- Supporting isnt always financial! \
- Those who cannot provide monetary support are welcome to help us develop the bot at ."""
+DONATE_STRING = """Heya, senang mendengar Anda ingin menyumbang!
+ Anda dapat mendukung project dengan menghubungi @BotMr07 \
+ Mendukung tidak selalu finansial! \
+ Mereka yang tidak dapat memberikan dukungan moneter dipersilakan untuk membantu kami mengembangkan bot di ."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -360,15 +360,15 @@ def yins_about_callback(update, context):
     query = update.callback_query
     if query.data == "yins_":
         query.message.edit_text(
-            text="๏ I'm *Yins*, a powerful group management bot built to help you manage your group easily."
-            "\n• I can restrict users."
-            "\n• I can greet users with customizable welcome messages and even set a group's rules."
-            "\n• I have an advanced anti-flood system."
-            "\n• I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc."
-            "\n• I have a note keeping system, blacklists, and even predetermined replies on certain keywords."
-            "\n• I check for admins' permissions before executing any command and more stuffs"
-            "\n\n_Yin's licensed under the GNU General Public License v3.0_"
-            "\n\n Click on button bellow to get basic help for YinsRobot.",
+            text="๏ Saya 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭, bot manajemen grup yang kuat yang dibuat untuk membantu Anda mengelola grup dengan mudah."
+            "\n• Saya dapat membatasi pengguna."
+            "\n• Saya dapat menyapa pengguna dengan pesan selamat datang yang dapat disesuaikan dan bahkan menetapkan rules grup."
+            "\n• Saya memiliki sistem anti-spam yang canggih."
+            "\n• Saya dapat memperingatkan pengguna hingga mereka mencapai peringatan maksimal, dengan setiap tindakan yang telah ditentukan sebelumnya seperti ban, bisu, tendang, dll."
+            "\n• Saya memiliki sistem pencatatan, daftar hitam, dan bahkan balasan yang telah ditentukan sebelumnya pada kata kunci tertentu."
+            "\n• Saya memeriksa izin admin sebelum menjalankan perintah apa pun dan lebih banyak pengaturan"
+            "\n\n_Yanzz berlisensi di bawah GNU General Public License v3.0_"
+            "\n\n Klik tombol di bawah untuk mendapatkan bantuan dasar 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -407,14 +407,14 @@ def yins_about_callback(update, context):
 
     elif query.data == "yins_admin":
         query.message.edit_text(
-            text=f"*๏ Let's make your group bit effective now*"
-            "\nCongragulations, YinsRobot now ready to manage your group."
+            text=f"*๏ Mari buat grup Anda sedikit efektif sekarang*"
+            "\nSelamat, 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭 sekarang siap untuk mengelola grup Anda."
             "\n\n*Admin Tools*"
-            "\nBasic Admin tools help you to protect and powerup your group."
-            "\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
+            "\nAlat Admin Dasar membantu Anda melindungi dan memperkuat grup Anda."
+            "\nAnda dapat mencekal anggota, Menendang anggota, Mempromosikan seseorang sebagai admin melalui perintah bot."
             "\n\n*Greetings*"
-            "\nLets set a welcome message to welcome new users coming to your group."
-            "\nsend `/setwelcome [message]` to set a welcome message!",
+            "\nMari atur pesan selamat datang untuk menyambut pengguna baru yang datang ke grup Anda."
+            "\nsend `/setwelcome [message]` untuk mengatur pesan selamat datang!",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -424,10 +424,10 @@ def yins_about_callback(update, context):
 
     elif query.data == "yins_notes":
         query.message.edit_text(
-            text=f"<b>๏ Setting up notes</b>"
-            f"\nYou can save message/media/audio or anything as notes"
-            f"\nto get a note simply use # at the beginning of a word"
-            f"\n\nYou can also set buttons for notes and filters (refer help menu)",
+            text=f"<b>๏ Untuk Setting notes</b>"
+            f"\n Anda dapat menyimpan pesan/media/audio atau apapun sebagai notes"
+            f"\nuntuk mendapatkan catatan cukup gunakan # di awal kata"
+            f"\n\n Anda juga dapat mengatur tombol untuk catatan dan filter (lihat menu help)",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="Go Back", callback_data="yins_")]]
@@ -435,8 +435,8 @@ def yins_about_callback(update, context):
         )
     elif query.data == "yins_support":
         query.message.edit_text(
-            text="*๏ Yins support chats*"
-            "\nJoin My Support Group/Channel for see or report a problem on Yins.",
+            text="*๏ Yanzz support chats*"
+            "\nJoin My Support Group/Channel untuk melihat atau melaporkan masalah pada Yanzz.",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -455,8 +455,8 @@ def yins_about_callback(update, context):
 
     elif query.data == "yins_credit":
         query.message.edit_text(
-            text=f"๏ Credis for Yins\n"
-            "\nHere Developers Making And Give Inspiration For Made The YinsRobot",
+            text=f"๏ Credis for Yanzz\n"
+            "\n Disini Pengembang Membuat Dan Memberi Inspirasi Untuk Membuat The YanzzRobot",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -491,17 +491,17 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text="๏›› This advance command for Musicplayer."
-            "\n\n๏ Command for admins only."
-            "\n • `/reload` - For refreshing the adminlist."
-            "\n • `/pause` - To pause the playback."
-            "\n • `/resume` - To resuming the playback You've paused."
-            "\n • `/skip` - To skipping the player."
-            "\n • `/end` - For end the playback."
-            "\n • `/musicplayer <on/off>` - Toggle for turn ON or turn OFF the musicplayer."
-            "\n\n๏ Command for all members."
-            "\n • `/play` <query /reply audio> - Playing music via YouTube."
-            "\n • `/playlist` - To playing a playlist of groups or your personal playlist",
+            text="๏›› Perintah lanjutan ini untuk Musicplayer."
+            "\n\n๏ Perintah untuk admin saja."
+            "\n • `/reload` - Untuk memperbarui daftar admin."
+            "\n • `/pause` - Untuk menjeda musik."
+            "\n • `/resume` - Untuk melanjutkan musik Anda yang telah terjeda."
+            "\n • `/skip` - Untuk melewatkan musik."
+            "\n • `/end` - Untuk mengakhiri musik."
+            "\n • `/musicplayer <on/off>` - Beralih untuk MENGAKTIFKAN atau MENONAKTIFKAN pemutar musik."
+            "\n\n๏ Untuk semua anggota."
+            "\n • `/play` <Judul/Link YT> - Memutar musik melalui YouTube."
+            "\n • `/playlist` - Untuk memutar playlist grup atau playlist pribadi Anda",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -535,7 +535,7 @@ def get_help(update: Update, context: CallbackContext):
         if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
             module = args[1].lower()
             update.effective_message.reply_text(
-                f"Contact me in PM to get help of {module.capitalize()}",
+                f"Hubungi saya di PM untuk mendapatkan bantuan {module.capitalize()}",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -551,7 +551,7 @@ def get_help(update: Update, context: CallbackContext):
             )
             return
         update.effective_message.reply_text(
-            "Contact me in PM to get the list of possible commands.",
+            "Hubungi saya di PM untuk mendapatkan daftar kemungkinan perintah.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -568,7 +568,7 @@ def get_help(update: Update, context: CallbackContext):
     elif len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
         module = args[1].lower()
         text = (
-            "Here is the available help for the *{}* module:\n".format(
+            "Berikut adalah bantuan yang tersedia untuk *{}* module:\n".format(
                 HELPABLE[module].__mod_name__
             )
             + HELPABLE[module].__help__
@@ -594,14 +594,14 @@ def send_settings(chat_id, user_id, user=False):
             )
             dispatcher.bot.send_message(
                 user_id,
-                "These are your current settings:" + "\n\n" + settings,
+                "Ini adalah pengaturan Anda saat ini:" + "\n\n" + settings,
                 parse_mode=ParseMode.MARKDOWN,
             )
 
         else:
             dispatcher.bot.send_message(
                 user_id,
-                "Seems like there aren't any user specific settings available :'(",
+                "Sepertinya tidak ada pengaturan khusus pengguna yang tersedia :'(",
                 parse_mode=ParseMode.MARKDOWN,
             )
 
@@ -610,7 +610,7 @@ def send_settings(chat_id, user_id, user=False):
             chat_name = dispatcher.bot.getChat(chat_id).title
             dispatcher.bot.send_message(
                 user_id,
-                text="Which module would you like to check {}'s settings for?".format(
+                text="Modul mana yang ingin Anda periksa {}'s pengaturan untuk?".format(
                     chat_name
                 ),
                 reply_markup=InlineKeyboardMarkup(
@@ -620,8 +620,8 @@ def send_settings(chat_id, user_id, user=False):
         else:
             dispatcher.bot.send_message(
                 user_id,
-                "Seems like there aren't any chat settings available :'(\nSend this "
-                "in a group chat you're admin in to find its current settings!",
+                "Sepertinya tidak ada setelan obrolan yang tersedia :'(\nSend this "
+                "di obrolan grup tempat Anda menjadi admin untuk menemukan pengaturannya saat ini!",
                 parse_mode=ParseMode.MARKDOWN,
             )
 
@@ -639,7 +639,7 @@ def settings_button(update: Update, context: CallbackContext):
             chat_id = mod_match.group(1)
             module = mod_match.group(2)
             chat = bot.get_chat(chat_id)
-            text = "*{}* has the following settings for the *{}* module:\n\n".format(
+            text = "*{}* memiliki pengaturan berikut untuk *{}* module:\n\n".format(
                 escape_markdown(chat.title), CHAT_SETTINGS[module].__mod_name__
             ) + CHAT_SETTINGS[module].__chat_settings__(chat_id, user.id)
             query.message.reply_text(
@@ -662,8 +662,8 @@ def settings_button(update: Update, context: CallbackContext):
             curr_page = int(prev_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
-                "Hi there! There are quite a few settings for {} - go ahead and pick what "
-                "you're interested in.".format(chat.title),
+                "Hai, yang di sana!  Ada beberapa pengaturan untuk {} - lanjutkan dan pilih apa"
+                "Anda tertarik.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
                         curr_page - 1, CHAT_SETTINGS, "stngs", chat=chat_id
@@ -734,7 +734,7 @@ def get_settings(update: Update, context: CallbackContext):
                 ),
             )
         else:
-            text = "Click here to check your settings."
+            text = "Klik di sini untuk memeriksa pengaturan Anda."
 
     else:
         send_settings(chat.id, user.id, True)
@@ -749,9 +749,9 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 1606221784:
+        if OWNER_ID != 1141626067:
             update.effective_message.reply_text(
-                "I'm free for everyone ❤️ If you wanna make me smile, just join"
+                "Saya bebas untuk semua orang ❤️ Jika Anda ingin membuat saya tersenyum, bergabung saja"
                 "[My Channel]({})".format(DONATION_LINK),
                 parse_mode=ParseMode.MARKDOWN,
             )
@@ -765,11 +765,11 @@ def donate(update: Update, context: CallbackContext):
             )
 
             update.effective_message.reply_text(
-                "I've PM'ed you about donating to my creator!"
+                "Saya telah mengirimi Anda PM tentang donasi ke pencipta saya!"
             )
         except Unauthorized:
             update.effective_message.reply_text(
-                "Contact me in PM first to get donation information."
+                "Hubungi saya di PM terlebih dahulu untuk mendapatkan informasi donasi."
             )
 
 
@@ -788,13 +788,13 @@ def migrate_chats(update: Update, context: CallbackContext):
     for mod in MIGRATEABLE:
         mod.__migrate__(old_chat, new_chat)
 
-    LOGGER.info("Successfully migrated!")
+    LOGGER.info("Berhasil dimigrasikan!")
     raise DispatcherHandlerStop
 
 
 def main():
 
-    if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
+    if SUPPORT_CHAT tidak ada dan isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.sendMessage(
                 f"@{SUPPORT_CHAT}", 
@@ -803,7 +803,7 @@ def main():
             )
         except Unauthorized:
             LOGGER.warning(
-                "Bot isnt able to send message to support_chat, go and check!"
+                "Bot tidak dapat mengirim pesan ke support_chat, pergi dan periksa!"
             )
         except BadRequest as e:
             LOGGER.warning(e.message)
