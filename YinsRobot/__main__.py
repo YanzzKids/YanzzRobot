@@ -466,7 +466,7 @@ def yins_about_callback(update, context):
                  ],
                  [
                     InlineKeyboardButton(text="AyiinMusic", url="https://github.com/AyiinXd/AyiinMusic"),
-                    InlineKeyboardButton(text="YinsRobot", url="https://github.com/AyiinXd/YinsRobot"),
+                    InlineKeyboardButton(text="Yanzz Robot", url="https://github.com/YanzzKids/YanzzRobot"),
                  ],
                  [
                     InlineKeyboardButton(text="Anime Kaizoku", url="https://github.com/animekaizoku"),
@@ -798,7 +798,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@{SUPPORT_CHAT}", 
-                "✨ Hai, YinzRobot Berhasil Diaktifkan",
+                "✨ Hai, 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭 Berhasil Diaktifkan",
                 parse_mode=ParseMode.MARKDOWN
             )
         except Unauthorized:
