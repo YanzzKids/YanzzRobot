@@ -45,7 +45,7 @@ LOGGER.info("Project maintained by: github.com/YanzzKids (t.me/BotMr07)")
 # if version < 3.9, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 9:
     LOGGER.error(
-        "You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting."
+        "You MUST have a python version of at Latest 3.9! Multiple features depend on this. Bot quitting."
     )
     sys.exit(1)
 
@@ -214,9 +214,7 @@ else:
 # If you forking dont remove this id, just add your id. LOL...
 
 DRAGONS.add(OWNER_ID)
-DRAGONS.add(1700405732)
 DEV_USERS.add(OWNER_ID)
-DEV_USERS.add(1700405732)
 
 if not SPAMWATCH_API:
     sw = None
