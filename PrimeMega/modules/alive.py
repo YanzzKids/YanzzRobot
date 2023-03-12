@@ -9,13 +9,13 @@ from PrimeMega.events import register
 from PrimeMega import telethn as tbot
 
 
-PHOTO = "https://telegra.ph/file/f268a324304deaa0f0180.jpg"
+PHOTO = "https://telegra.ph/file/51c8712f990fd5ab751b8.jpg"
 
 @register(pattern=("/alive"))
 async def awake(event):
-  TEXT = f"**Hi [{event.sender.first_name}](tg://user?id={event.sender.id}), I'm Zenitsu Robot.** \n\n"
+  TEXT = f"**Hi [{event.sender.first_name}](tg://user?id={event.sender.id}), I'm 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭.** \n\n"
   TEXT += "⚡ **I'm Working Properly** \n\n"
-  TEXT += f"👨‍💻 **My Master : [Bion](https://t.me/onlybionn)** \n\n"
+  TEXT += f"👨‍💻 **My Master : [Yanzz](https://t.me/BotMr07)** \n\n"
   TEXT += f"📃 **Library Version :** `{telever}` \n\n"
   TEXT += f"🔰 **Telethon Version :** `{tlhver}` \n\n"
   TEXT += f"💥 **Pyrogram Version :** `{pyrover}` \n\n"
