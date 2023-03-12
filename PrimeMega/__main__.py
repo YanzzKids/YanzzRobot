@@ -85,7 +85,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *👋🏻 ʜᴇʟʟᴏ {} *
-ᴍʏ ɴᴀᴍᴇ ɪꜱ ᴢᴇɴɪᴛꜱᴜ [✨](https://telegra.ph/file/f268a324304deaa0f0180.jpg)
+ᴍʏ ɴᴀᴍᴇ ɪꜱ 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭 [✨](https://telegra.ph/file/51c8712f990fd5ab751b8.jpg)
 ᴍᴇ ɪꜱ ᴀ ʙᴏᴛ ᴍᴀɴᴀɢᴇʀ + ᴍᴜꜱɪᴄ ᴛᴏ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡᴇʟʟ.
 ──────────────────────
 × `{}` *ᴜꜱᴇʀꜱ, ᴀᴄʀᴏꜱꜱ* `{}` *ᴄʜᴀᴛꜱ.*
@@ -96,14 +96,14 @@ PM_START_TEXT = """
 buttons = [
         [
         InlineKeyboardButton(
-            text="➕️ ᴛᴀᴍʙᴀʜᴋᴀɴ ᴢᴇɴɪᴛꜱᴜ ➕️", url="t.me/ZeniitsuRobot?startgroup=true"
+            text="➕️ ᴛᴀᴍʙᴀʜᴋᴀɴ 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭 ➕️", url="t.me/YanzzRobot?startgroup=true"
         ),
     ],
     [
-        InlineKeyboardButton(text="💌 ɢʀᴏᴜᴘ", url="t.me/ZennXSupport"
+        InlineKeyboardButton(text="💌 ɢʀᴏᴜᴘ", url="t.me/YanzzSupportt"
         ),
         InlineKeyboardButton(
-            text="📣 ᴄʜᴀɴɴᴇʟ", url="t.me/zennih"
+            text="📣 ᴄʜᴀɴɴᴇʟ", url="t.me/YanzzUcull"
         ),
     ],
     [
@@ -115,7 +115,7 @@ buttons = [
 
 
 HELP_STRINGS = """
-Klik tombol di bawah ini untuk mendapatkan deskripsi tentang fitur manage bot Zenitsu.
+Klik tombol di bawah ini untuk mendapatkan deskripsi tentang fitur manage 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭.
 
 ✪ /start : Mulai Aku!! ✨
 ✪ /help : Perintah Untuk Membantu Anda
@@ -381,7 +381,7 @@ def prime_about_callback(update, context):
                  ],
                  [
                     InlineKeyboardButton(text="ᴘᴇʀɪɴᴛᴀʜ ᴘʟᴀʏ", callback_data="source_"),
-                    InlineKeyboardButton(text="ᴘᴇʀɪɴᴛᴀʜ ᴇxsᴛʀᴀ", callback_data="prime_credit"),
+                    InlineKeyboardButton(text="ᴘᴇʀɪɴᴛᴀʜ ᴇxᴛʀᴀ", callback_data="prime_credit"),
                  ],
                  [
                     InlineKeyboardButton(text="⭅ ᴋᴇᴍʙᴀʟɪ", callback_data="prime_support"),
@@ -449,8 +449,8 @@ def prime_about_callback(update, context):
         )
     elif query.data == "prime_support":
         query.message.edit_text(
-            text="*Bantuan Perintah Zenitsu* [📝](https://telegra.ph/file/54e99512efd4369194e16.jpg)"
-            "\npilih tombol dibawah untuk melihat bantuan perintah Zenitsu",
+            text="*Bantuan Perintah 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭* [📝](https://te.legra.ph/file/c88c10d4a625118d2fdf7.jpg)"
+            "\npilih tombol dibawah untuk melihat bantuan perintah 𝐘𝐚𝐧𝐳𝐳 𝐑𝐨𝐛𝐨𝐭",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
